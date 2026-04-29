@@ -5,6 +5,7 @@ import os
 import argparse
 import time
 import glob
+import shutil
 
 parser = argparse.ArgumentParser(allow_abbrev=False,
                                  description='Calibrate a camera using checkerboard')
@@ -97,10 +98,10 @@ def calibrate(path, dims):
     np.savetxt('./results/dist.csv', dist, delimiter=',')
     print("rvecs : \n")
     print(rvecs)
-    np.savetxt('./results/rvecs.csv', rvecs, delimiter=',')
+    np.savetxt('./results/rvecs.csv', np.array(rvecs).reshape(-1, 3), delimiter=',')
     print("tvecs : \n")
     print(tvecs)
-    np.savetxt('./results/tvecs.csv', tvecs, delimiter=',')
+    np.savetxt('./results/tvecs.csv', np.array(tvecs).reshape(-1, 3), delimiter=',')
 
 
 if __name__ == "__main__":
