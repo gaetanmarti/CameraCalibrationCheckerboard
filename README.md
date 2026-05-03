@@ -4,19 +4,30 @@ We use a simple checkerboard to obtain camera intrinsic properties and distortio
 
 ## Run
 
-### Create virtual environment
-It's advised to create a conda environment first.
-```shell script
-conda create -n camera python=3.8
-conda init
-exec zsh
-conda activate camera
-```
 ### Clone repository
 ```shell script
 git clone https://github.com/yashdeep01/CameraCalibrationCheckerboard.git
 cd CameraCalibrationCheckerboard/
 ```
+
+### Create virtual environment
+```shell script
+python3.10 -m venv .venv
+```
+
+### Activate virtual environment
+```shell script
+source .venv/bin/activate
+```
+
+> **Note Apple:** Make sure to use Python 3.10 from Homebrew:
+> ```shell script
+> brew install python@3.10
+> /opt/homebrew/bin/python3.10 -m venv .venv
+> source .venv/bin/activate
+> ```
+
+
 ### Install requirements
 ```shell script
 pip install -r requirements.txt

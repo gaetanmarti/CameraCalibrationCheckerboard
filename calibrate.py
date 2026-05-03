@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 
 import os
+import shutil
 import argparse
 import time
 import glob
@@ -97,10 +98,10 @@ def calibrate(path, dims):
     np.savetxt('./results/dist.csv', dist, delimiter=',')
     print("rvecs : \n")
     print(rvecs)
-    np.savetxt('./results/rvecs.csv', rvecs, delimiter=',')
+    np.savetxt('./results/rvecs.csv', np.squeeze(rvecs), delimiter=',')
     print("tvecs : \n")
     print(tvecs)
-    np.savetxt('./results/tvecs.csv', tvecs, delimiter=',')
+    np.savetxt('./results/tvecs.csv', np.squeeze(tvecs), delimiter=',')
 
 
 if __name__ == "__main__":
